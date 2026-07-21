@@ -2,3 +2,12 @@ numpy==2.5.1
 rasterio==1.5.0
 requests==2.34.2
 pillow==12.3.0
+geopandas==1.1.4
+shapely==2.1.2
+huggingface_hub==1.24.0
+ultralytics==8.4.103
+
+# CPU-only PyTorch build (no CUDA GPU on this machine)
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.13.0+cpu
+torchvision==0.28.0+cpu
