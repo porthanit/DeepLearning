@@ -1,6 +1,6 @@
 <div align="center">
 
-# DeepLearning
+# Deep Learning
 
 **การเรียนรู้เชิงลึกสำหรับข้อมูลสำรวจโลก**
 *(Deep Learning for Earth Observation)*
