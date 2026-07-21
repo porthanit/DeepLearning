@@ -1,0 +1,15 @@
+# Separate venv (.venv-cnn) for CNN work -- installing tensorflow into the
+# main .venv alongside rasterio/ultralytics tends to fail on this machine.
+#
+#   python -m venv .venv-cnn
+#   .venv-cnn\Scripts\activate
+#   pip install -r requirements-cnn.txt
+
+numpy==2.5.1
+pandas==3.0.3
+rasterio==1.5.0
+requests==2.34.2
+scikit-learn==1.9.0
+earthengine-api==1.7.36
+tensorflow==2.21.0
+keras==3.15.0

@@ -1,5 +1,6 @@
 # Python
 .venv/
+.venv-cnn/
 __pycache__/
 *.py[cod]
 *.egg-info/
@@ -14,6 +15,10 @@ __pycache__/
 # IDE
 .vscode/*
 !.vscode/settings.json
+
+# Trained models
+*.keras
+*.h5
 
 # GIS / large data outputs
 *.tif
