@@ -1,0 +1,39 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# Environment / secrets
+.env
+.env.*
+
+# IDE
+.vscode/*
+!.vscode/settings.json
+
+# GIS / large data outputs
+*.tif
+*.tiff
+*.tif.ovr
+*.tfw
+*.tif.aux.xml
+*.shp
+*.shx
+*.dbf
+*.prj
+*.sbn
+*.sbx
+*.qgz~
+*.gpkg-wal
+*.gpkg-shm
+
+# Course source material (not part of the submission)
+GEE4NRE*/
+
+# OS
+Thumbs.db
+.DS_Store
