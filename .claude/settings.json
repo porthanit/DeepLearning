@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s http://localhost:*)",
+      "Bash(command -v *)",
+      "Bash(env)",
+      "Bash(git config --global --list)",
+      "Bash(code --version)",
+      "Bash(git --version)",
+      "Bash(gh --version)",
+      "mcp__Claude_Browser__read_network_requests",
+      "mcp__Claude_Browser__tabs_context",
+      "mcp__Claude_Browser__read_console_messages",
+      "mcp__Claude_Browser__get_page_text"
+    ]
+  }
+}
