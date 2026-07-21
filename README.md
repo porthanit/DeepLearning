@@ -3,7 +3,7 @@
 # DeepLearning
 
 **การเรียนรู้เชิงลึกสำหรับข้อมูลสำรวจโลก**
-*(Deep Learning for Earth Observation)* — โปรเจกต์ประกอบการอบรมของ GISTDA
+*(Deep Learning for Earth Observation)*
 
 Created and modified by Thanit Nukoolrat and Claude
 
