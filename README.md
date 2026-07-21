@@ -2,8 +2,8 @@
 
 # DeepLearning
 
-**Deep Learning for Earth Observation** — coursework project from the GISTDA training
-*"การเรียนรู้เชิงลึกสำหรับข้อมูลสำรวจโลก"*
+**การเรียนรู้เชิงลึกสำหรับข้อมูลสำรวจโลก**
+*(Deep Learning for Earth Observation)* — โปรเจกต์ประกอบการอบรมของ GISTDA
 
 ![Python](https://img.shields.io/badge/python-3.13-blue?logo=python&logoColor=white)
 ![GDAL](https://img.shields.io/badge/GDAL-rasterio-2b7a78)
@@ -14,27 +14,27 @@
 
 ---
 
-## Overview
+## ภาพรวม
 
-This repo tracks hands-on work from the GISTDA *Deep Learning for Earth Observation*
-course: preparing very-high-resolution satellite imagery, training CNN / U-Net models
-for geospatial classification, and experimenting with pretrained models (SAM, YOLO,
-GeoSAM) for feature extraction.
+รีโปนี้เก็บงานฝึกปฏิบัติจากคอร์ส *Deep Learning for Earth Observation* ของ GISTDA
+ตั้งแต่การเตรียมภาพถ่ายดาวเทียมความละเอียดสูงมาก การเทรนโมเดล CNN / U-Net
+สำหรับการจำแนกข้อมูลเชิงพื้นที่ ไปจนถึงการทดลองใช้ Pre-Trained Models
+(SAM, YOLO, GeoSAM) เพื่อสกัดวัตถุออกจากภาพ
 
-## Project Structure
+## โครงสร้างโปรเจกต์
 
 ```
 DeepLearning/
-├── GoogleMap-Download.py   # Download + georeference a Google Maps satellite AOI
-├── requirements.txt        # Python dependencies
-├── .vscode/settings.json   # Interpreter + environment config
+├── GoogleMap-Download.py   # ดาวน์โหลด + ใส่พิกัดให้ภาพถ่ายดาวเทียมจาก Google Maps
+├── requirements.txt        # รายการไลบรารีที่ต้องติดตั้ง
+├── .vscode/settings.json   # ตั้งค่า Interpreter และ environment
 └── .gitignore
 ```
 
-## Getting Started
+## เริ่มต้นใช้งาน
 
-**Prerequisites:** Python 3.13, a virtual environment, and (for the external overview
-pyramid step) a local QGIS install.
+**สิ่งที่ต้องมี:** Python 3.13, virtual environment และ (สำหรับขั้นตอนสร้าง
+external overview pyramid) เครื่องต้องลง QGIS ไว้ด้วย
 
 ```bash
 git clone https://github.com/porthanit/DeepLearning.git
@@ -46,50 +46,52 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-## Usage
+## วิธีใช้งาน
 
-### Download a satellite image for an AOI
+### ดาวน์โหลดภาพถ่ายดาวเทียมตามพื้นที่ที่สนใจ (AOI)
 
-1. Draw a rectangle in **Google Earth Engine → Geometry Tools** and copy the generated
-   `ee.Geometry.Polygon(...)` coordinates.
-2. Paste the `[lon, lat]` pairs into `AOI_LONLAT` at the top of
-   [`GoogleMap-Download.py`](./GoogleMap-Download.py).
-3. Run it:
+1. วาดสี่เหลี่ยมใน **Google Earth Engine → Geometry Tools** แล้วคัดลอกโค้ด
+   `ee.Geometry.Polygon(...)` ที่ได้
+2. นำพิกัด `[lon, lat]` ไปวางแทนที่ตัวแปร `AOI_LONLAT` ที่ด้านบนของไฟล์
+   [`GoogleMap-Download.py`](./GoogleMap-Download.py)
+3. รันสคริปต์:
 
    ```bash
    python GoogleMap-Download.py
    ```
 
-**Output:**
+**ผลลัพธ์ที่ได้:**
 
-| File | Description |
+| ไฟล์ | รายละเอียด |
 |---|---|
-| `GoogleMap-Images.tif` | Mosaicked satellite image, reprojected to `EPSG:32647` (UTM 47N) |
-| `GoogleMap-Images.tif.ovr` | External overview pyramid (2x / 4x / 8x / 16x) for fast display in QGIS |
+| `GoogleMap-Images.tif` | ภาพโมเสกที่ต่อแล้ว reproject เป็น `EPSG:32647` (UTM โซน 47N) |
+| `GoogleMap-Images.tif.ovr` | External overview pyramid (2x / 4x / 8x / 16x) ช่วยให้เปิดดูใน QGIS ได้เร็วขึ้น |
 
-Adjust `ZOOM` in the script to trade off resolution vs. download size (zoom 20 ≈
-0.15 m/px, suited for building-scale extraction).
+ปรับค่า `ZOOM` ในสคริปต์เพื่อแลกระหว่างความละเอียดกับขนาดไฟล์ที่ดาวน์โหลด
+(zoom 20 ≈ ความละเอียด 0.15 เมตร/พิกเซล เหมาะกับงานสกัดอาคาร)
 
-## Troubleshooting
+## แก้ปัญหาที่พบบ่อย
 
-This environment has some stale system-wide variables left over from an older
-PostgreSQL/PostGIS install (`CURL_CA_BUNDLE`, `PROJ_LIB`, `GDAL_DATA`) that can break
-TLS verification and CRS lookups for unrelated geospatial tools. `GoogleMap-Download.py`
-overrides these at runtime (scoped to its own process only) rather than requiring a
-system-wide fix. If a *different* script in this repo hits a `proj.db` or SSL
-certificate error, apply the same pattern.
+เครื่องนี้มีตัวแปร environment ระดับระบบบางตัวที่ตั้งค้างไว้จากการติดตั้ง
+PostgreSQL/PostGIS เวอร์ชันเก่า (`CURL_CA_BUNDLE`, `PROJ_LIB`, `GDAL_DATA`)
+ซึ่งอาจทำให้การตรวจสอบ TLS หรือการค้นหาระบบพิกัด (CRS) ของเครื่องมือ
+geospatial อื่นๆ พังโดยไม่ทราบสาเหตุ ไฟล์ `GoogleMap-Download.py`
+แก้ปัญหานี้ด้วยการ override ค่าตัวแปรเหล่านี้ **เฉพาะใน process ของตัวเองเท่านั้น**
+โดยไม่ไปยุ่งกับการตั้งค่าระดับระบบ หากสคริปต์ตัวอื่นในรีโปนี้เจอ error
+เกี่ยวกับ `proj.db` หรือ SSL certificate ให้ใช้วิธีแก้แบบเดียวกันนี้ได้
 
-## Roadmap
+## แผนงานต่อไป
 
-- [x] Download & georeference high-resolution AOI imagery
-- [ ] Train CNN-1D / CNN-2D / U-Net classifiers
-- [ ] Building extraction with GeoSAM / YOLO
-- [ ] Gaussian Splatting case study (drone imagery → NeRFStudio → SuperSplat)
+- [x] ดาวน์โหลดและใส่พิกัดให้ภาพถ่ายดาวเทียมความละเอียดสูง
+- [ ] เทรนโมเดลจำแนกข้อมูลแบบ CNN-1D / CNN-2D / U-Net
+- [ ] สกัดอาคารด้วย GeoSAM / YOLO
+- [ ] กรณีศึกษา Gaussian Splatting (ภาพจากโดรน → NeRFStudio → SuperSplat)
 
-## Notes on data sources
+## หมายเหตุเกี่ยวกับแหล่งข้อมูล
 
-Satellite tiles are fetched from Google Maps for **educational, non-commercial
-coursework use only**. Review Google's terms of service before any other use.
+ภาพถ่ายดาวเทียมถูกดึงมาจาก Google Maps **เพื่อการศึกษาและใช้ในงานคอร์สเรียน
+เท่านั้น ไม่ใช่เชิงพาณิชย์** หากต้องการนำไปใช้ในลักษณะอื่น
+ควรตรวจสอบเงื่อนไขการให้บริการ (Terms of Service) ของ Google ก่อน
 
 ---
 
