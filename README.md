@@ -5,6 +5,8 @@
 **การเรียนรู้เชิงลึกสำหรับข้อมูลสำรวจโลก**
 *(Deep Learning for Earth Observation)* — โปรเจกต์ประกอบการอบรมของ GISTDA
 
+Created and modified by Thanit Nukoolrat and Claude
+
 ![Python](https://img.shields.io/badge/python-3.13-blue?logo=python&logoColor=white)
 ![GDAL](https://img.shields.io/badge/GDAL-rasterio-2b7a78)
 ![Status](https://img.shields.io/badge/status-in%20progress-yellow)
