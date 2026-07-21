@@ -124,4 +124,4 @@ Thanit Nukoolrat · GISTDA
 
 ---
 
-📍 อยากรู้เรื่อง GIS และข้อมูลเชิงพื้นที่เพิ่มเติม? ติดตามที่ PORTHA Channel คลิก https://www.youtube.com/watch?v=8or7MoUCQHY&list=PLh1MlD0Zdj-B_-GZN4WCCY3BKwhWuD5hH
+📍 อยากรู้เรื่อง GIS และข้อมูลเชิงพื้นที่เพิ่มเติม? ติดตามที่ [PORTHA Channel](https://youtu.be/8or7MoUCQHY?list=PLh1MlD0Zdj-B_-GZN4WCCY3BKwhWuD5hH)
